@@ -2,18 +2,17 @@ import React from "react";
 import { Link, graphql } from "gatsby";
 
 import Layout from "../components/layout";
-import slugifyPost from "../../slugifyPost";
+
 
 const IndexPage = ({ data }) => (
   <Layout>
-    <h1>Post List</h1>
+    <p><a href="/___graphql">GraphQL IDE</a></p>
+    <h1>Case List</h1>
     <ul>
-      {data.postgres.posts.map(post => (
-        <li key={post.id}>
-          <strong>
-            <Link to={slugifyPost(post)}>{post.title}</Link>
-          </strong>{" "}
-          by <em>{post.author.username}</em>
+      {data.postgres.enfcases.map(enfcase => (
+        <li key={enfcase.enforceId}>
+          {enfcase.enforceId}&nbsp;{enfcase.cpfNum}
+          <em>{enfcase.operatorN}</em>
         </li>
       ))}
     </ul>
@@ -25,13 +24,10 @@ const IndexPage = ({ data }) => (
 export const query = graphql`
   {
     postgres {
-      posts: allPostsList {
-        id
-        author: userByAuthorId {
-          id
-          username
-        }
-        title
+      enfcases: allEnfcasesList {
+        enforceId
+        cpfNum
+        operatorN
       }
     }
   }

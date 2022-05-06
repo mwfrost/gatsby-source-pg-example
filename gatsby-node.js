@@ -14,6 +14,11 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         posts: allPostsList {
           id
           title
+        },
+        enfcases: allEnfcasesList {
+          enforceId
+          cpfNum
+          operatorN
         }
       }
     }
