@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Default Starter',
+    title: 'Enforcement Summary Data',
   },
   plugins: [
     'gatsby-plugin-react-helmet',
@@ -33,5 +33,5 @@ module.exports = {
         schema: 'public',
       },
     },
-  ],
+    ],
 }
