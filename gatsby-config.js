@@ -33,5 +33,6 @@ module.exports = {
         schema: 'public',
       },
     },
+    `gatsby-plugin-styled-components`,
     ],
 }
