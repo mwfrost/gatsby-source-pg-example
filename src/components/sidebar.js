@@ -6,9 +6,13 @@ const Sidebar = ( children ) => {
   return (
     <ColumnWrapper style={{ gridColumn: "span 2"}}>
         <h2>Sidebar Header</h2>
+        <Link to = "#example1">Simple Aggregation in a Postgres View</Link>
         <ul>
             <li>
-                <a href="#summary1">Summary of Enforcement Activity - Nationwide</a>
+                <a href="#national1">National Summary</a>
+            </li>
+            <li>
+                <a href="#national2">Enforcement Actions</a>
             </li>
         </ul>
         <h4>Summary of Enforcement Actions</h4>
