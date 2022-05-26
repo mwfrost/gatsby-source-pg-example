@@ -13,8 +13,10 @@ const IndexPage = ({ data }) => (
   <Sidebar></Sidebar>
    <ColumnWrapper style={{ gridColumn: "span 6"}}>
    <p><a href="/___graphql">GraphQL IDE</a></p>
-    <h2 id="example1">Simple Aggregation in a Postgres View</h2>
-    <p>Rendering key-value pairs as a description list </p>
+    <h2 id="example1">Cases by Region: </h2>
+    <p>In this example, the aggregation has been performed in a Postgres view, 
+      and Gatsby accesses the auto-generated GraphQL endpoint. The resulting 
+      key-value pairs are rendered as a description list </p>
     <dl>
       {data.postgres.casesByRegions.map(casesByRegion => (
         <React.Fragment key={casesByRegion.regionNam}>
@@ -28,7 +30,7 @@ const IndexPage = ({ data }) => (
 
     <h2 id="national1">National Summary</h2>
     <small>https://primis-stage.phmsa.dot.gov/comm/reports/enforce/EnfHome.html?nocache=4032</small>
-    <p>Rendering summary stats in a table</p>
+    <p>Example of summary stats in a table.</p>
     <table>
     <thead><tr><th>Year</th><th>Opened</th><th >Closed</th></tr></thead>
     <tbody>
@@ -56,7 +58,7 @@ const IndexPage = ({ data }) => (
     <h1 id="caselist">Case List</h1>
     <p>Example of direct table query.</p>
     <div>
-      {data.postgres.enfcases.map(enfcase => (
+      {data.postgres.sc_cases.map(enfcase => (
         <div class="row" key={enfcase.enforceId}> 
           {enfcase.enforceId}<br/>{enfcase.cpfNum} <br/>
           <em>{enfcase.operatorN}</em>
@@ -73,7 +75,7 @@ const IndexPage = ({ data }) => (
 export const query = graphql`
 {
   postgres {
-    enfcases: allEnfcasesList(first: 10) {
+    sc_cases: allScCasesList(first: 10) {
       enforceId
       cpfNum
       operatorN

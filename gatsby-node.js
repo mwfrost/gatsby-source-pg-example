@@ -11,11 +11,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
   const result = await graphql(`
     {
       postgres {
-        posts: allPostsList {
-          id
-          title
-        },
-        enfcases: allEnfcasesList {
+        sc_cases: allScCasesList {
           enforceId
           cpfNum
           operatorN
@@ -23,14 +19,4 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
       }
     }
   `);
-
-  result.data.postgres.posts.forEach((post) => {
-    createPage({
-      path: slugifyPost(post),
-      component: path.resolve("./src/templates/blog-post.js"),
-      context: {
-        postId: post.id,
-      },
-    });
-  });
 };
