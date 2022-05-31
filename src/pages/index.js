@@ -15,7 +15,7 @@ const IndexPage = ({ data }) => (
    <p><a href="/___graphql">GraphQL IDE</a></p>
     <h2 id="example1">Cases by Region: </h2>
     <p>In this example, the aggregation has been performed in a Postgres view, 
-      and Gatsby accesses the auto-generated GraphQL endpoint. The resulting 
+      and Gatsby accesses the auto-generated <code>allCasesByRegionsList</code> GraphQL endpoint. The resulting 
       key-value pairs are rendered as a description list </p>
     <dl>
       {data.postgres.casesByRegions.map(casesByRegion => (
@@ -26,11 +26,11 @@ const IndexPage = ({ data }) => (
       ))}
       </dl>
     
-
-
-    <h2 id="national1">National Summary</h2>
+    <h2 id="example2">National Summary</h2>
     <small>https://primis-stage.phmsa.dot.gov/comm/reports/enforce/EnfHome.html?nocache=4032</small>
-    <p>Example of summary stats in a table.</p>
+    <p>In this example, the aggregation has been performed in a Postgres view, 
+      and Gatsby accesses the auto-generated <code>allCasesByYearsList</code> GraphQL endpoint. The resulting 
+      key-value pairs are rendered as table rows. </p>
     <table>
     <thead><tr><th>Year</th><th>Opened</th><th >Closed</th></tr></thead>
     <tbody>
@@ -44,19 +44,8 @@ const IndexPage = ({ data }) => (
     </tbody>
     </table>
 
-    <h2>Summary of Enforcement Actions</h2>
-    <h3 id="national2a">Enforcement Cases Initiated</h3>
-    <small>https://primis.phmsa.dot.gov/comm/reports/enforce/Actions_opid_0.html?nocache=8749#_TP_1_tab_1</small>
-   
-    <h3 id="national2b">Enforcement Orders Issued</h3>
-    <small>https://primis-stage.phmsa.dot.gov/comm/reports/enforce/Actions_opid_0.html?nocache=4806#_TP_1_tab_2</small>
-
-    <h3 id="national2c">Enforcement Cases Closed</h3>
-    <small>https://primis-stage.phmsa.dot.gov/comm/reports/enforce/Actions_opid_0.html?nocache=4806#_TP_1_tab_2</small>
-
-
     <h1 id="caselist">Case List</h1>
-    <p>Example of direct table query.</p>
+    <p>In this example, Gatsby queries the auto-generated <code>allScCasesList</code> endpoint and renders the returned records.</p>
     <div>
       {data.postgres.sc_cases.map(enfcase => (
         <div class="row" key={enfcase.enforceId}> 
