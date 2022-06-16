@@ -16,6 +16,9 @@ const Sidebar = ( children ) => {
             <li>
             <Link to="#caselist">Case List</Link>
             </li>
+            <li>
+              <Link to="/case/1106308">Example case detail</Link>
+            </li>
         </ul>
 
     </ColumnWrapper>
